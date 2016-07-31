@@ -51,7 +51,7 @@ public class Application extends android.app.Application {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
         long now = System.currentTimeMillis();
-        long interval = 10 * 1 * 1000; // 10 mins
+        long interval = 10 * 60 * 1000; // 10 mins
         manager.setRepeating(AlarmManager.RTC_WAKEUP, now + interval, interval,
                 pendingIntent); // Schedule timer for one hour from now and every hour after that
     }
