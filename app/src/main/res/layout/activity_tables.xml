@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.abed.quandoo.ui.Main.MainActivity">
+
+    <com.abed.hexagonrecyclerview.view.HexagonRecyclerView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rv_items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:items_count_in_row="2"
+        app:items_horizontal_spacing="20dp"
+        app:items_vertical_spacing="20dp"
+        app:orientation="horizontal" />
+
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+</FrameLayout>

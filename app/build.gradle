@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    defaultConfig {
+        applicationId "com.abed.quandoo"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"https://s3-eu-west-1.amazonaws.com/quandoo-assessment/\""
+        }
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://s3-eu-west-1.amazonaws.com/quandoo-assessment/\""
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    final DAGGER_VERSION = '2.2'
+    final SUPPORT_LIBRARY_VERSION = '23.4.0'
+    final BUTTERKNIFE_VERSION = '8.1.0'
+    final dbflow_version = '3.1.1'
+    final RETROFIT_VERSION = '2.1.0'
+    def mockito = "org.mockito:mockito-core:1.10.19"
+
+    def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+
+    // APT dependencies
+    apt "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
+    apt 'com.squareup:javapoet:1.7.0'
+    apt daggerCompiler
+
+    // App Dependencies
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    compile "com.google.dagger:dagger:$DAGGER_VERSION"
+    compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
+    compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
+    compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.mindvalley.android:hexagonrecyclerview:1.0.1'
+
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
+    compile 'io.reactivex:rxjava:1.1.4'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+//    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.2'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support:support-annotations:23.4.0'
+    androidTestCompile mockito
+    testCompile mockito
+
+
+}
