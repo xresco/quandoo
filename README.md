@@ -6,6 +6,7 @@ Libraries and tools included:
 - [Retrofit 2](http://square.github.io/retrofit/)
 - [Dagger 2](http://google.github.io/dagger/)
 - [DbFlow](https://github.com/Raizlabs/DBFlow)
+- [Hexagon Recyclerview](https://github.com/xresco/Hexagon-Recyclerview)
 - [Butterknife](https://github.com/JakeWharton/butterknife)
 - Functional tests with [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html)
 - [Mockito](http://mockito.org/)
